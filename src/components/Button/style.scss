@@ -1,0 +1,35 @@
+@import "../../styles/theme";
+@import "../../styles/glow";
+@import "../../styles/border";
+@import "../../styles/font";
+@font-face {
+  font-family: myFirstFont;
+  src: url("../../fonts/KdamThmorPro-Regular.ttf");
+}
+
+.button {
+  @include font();
+  position: relative;
+  padding: 6px 20px;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  transition: background-color 50ms ease, color 50ms ease;
+}
+
+@mixin button-colors($color) {
+  @include outer-glow($color);
+  @include inner-glow($color);
+  @include hover-glow($color);
+  @include active-glow($color);
+  @include border($color);
+  color: $color;
+}
+
+.button-primary {
+  @include button-colors($primary-color);
+}
+
+.button-danger {
+  @include button-colors($danger-color);
+}

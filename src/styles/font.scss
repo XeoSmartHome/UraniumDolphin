@@ -1,0 +1,6 @@
+
+@mixin font ($letter-spacing:0.15rem) {
+  font-family: myFirstFont, serif;
+  letter-spacing: $letter-spacing;
+  font-weight: bold;
+}

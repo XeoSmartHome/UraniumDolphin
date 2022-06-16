@@ -1,0 +1,32 @@
+@import "../../styles/theme";
+
+.dropdown {
+  background: transparent;
+  color: $primary-color;
+  padding: 0.5rem;
+  border-width: $border-width;
+  border-color: $primary-color;
+  border-radius: $roundness;
+  box-shadow: 0 0 30px 1px $primary-color;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $primary-color;
+    color: black;
+    box-shadow: 0 0 50px 10px $primary-color;
+  }
+
+  &:active {
+    background-color: black;
+    color: $primary-color;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  & > option {
+    color: $primary-color;
+    background-color: black;
+  }
+}

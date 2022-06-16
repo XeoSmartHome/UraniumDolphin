@@ -1,0 +1,54 @@
+@import "../../styles/theme";
+@import "../../styles/glow";
+
+.slider {
+  -webkit-appearance: none;
+  height: 6px;
+  transition: opacity .2s;
+  border-radius: 100px;
+}
+
+@mixin slider-thumb ($color) {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100px;
+  background: $color;
+  cursor: pointer;
+}
+
+@mixin slider-colors($color) {
+  @include outer-glow($color, 4px);
+  @include hover-glow($color);
+  background-color: darken($color, 10%);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &::-webkit-slider-thumb {
+    @include slider-thumb($color);
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    &:before {
+      box-shadow: -80px 0 0 80px #43e5f7;
+    }
+  }
+
+  &::-moz-range-thumb {
+    @include slider-thumb($color);
+  }
+
+  &:hover {
+    background-color: $color;
+  }
+
+}
+
+.slider-primary {
+  @include slider-colors($primary-color);
+}
+
+.slider-danger {
+  @include slider-colors($danger-color);
+}
