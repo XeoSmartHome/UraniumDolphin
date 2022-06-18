@@ -1,0 +1,50 @@
+@import "../../styles/theme";
+@import "../../styles/glow";
+@import "../../styles/border";
+@import "../../styles/font";
+
+
+@mixin table-base ($color) {
+  display: flex;
+  flex-direction: column;
+  color: $color;
+  @include font();
+  @include outer-glow($color);
+  @include border($color);
+
+  & > .row {
+    display: flex;
+    border-style: solid;
+    border-width: 0 0 4px 0;
+    border-color: $color;
+
+    &:last-child {
+      border-width: 0;
+    }
+
+    & > .dot {
+      display: flex;
+      flex: 1;
+      padding: 0.5rem;
+      border-style: solid;
+      border-width: 0 4px 0 0;
+      border-color: $color;
+      position: relative;
+      @include square-inner-glow($color);
+      @include hover-glow($color);
+
+      &:last-child {
+        border-width: 0;
+      }
+
+    }
+  }
+}
+
+.table-primary {
+  @include table-base($primary-color);
+}
+
+.table-danger {
+  @include table-base($danger-color);
+}

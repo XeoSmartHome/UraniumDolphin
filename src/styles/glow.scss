@@ -1,9 +1,8 @@
-
-@mixin outer-glow ($color, $power:2px) {
+@mixin outer-glow($color, $power:2px) {
   box-shadow: 0 0 30px $power $color;
 }
 
-@mixin inner-glow ($color) {
+@mixin inner-glow($color) {
   &:before {
     position: absolute;
     content: "";
@@ -16,7 +15,15 @@
   }
 }
 
-@mixin hover-glow ($color) {
+@mixin square-inner-glow($color) {
+  @include inner-glow($color);
+
+  &:before {
+    border-radius: 0;
+  }
+}
+
+@mixin hover-glow($color) {
   &:hover {
     background-color: $color;
     color: black;
@@ -24,7 +31,7 @@
   }
 }
 
-@mixin active-glow ($color) {
+@mixin active-glow($color) {
   &:active {
     background-color: black;
     color: $color;
